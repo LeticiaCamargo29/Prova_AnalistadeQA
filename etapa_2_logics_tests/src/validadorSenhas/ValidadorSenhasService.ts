@@ -82,8 +82,8 @@ export class ValidadorSenhasService {
                 1. Se a senha possuir pelo menos uma letra maiúscula, deve retornar true;
                 2. Se a senha não possuir pelo menos uma letra maiúscula, deve retornar false;
         */
-                var letrasMinusculas = /[A-Z]/;
-                return letrasMinusculas.test(senha)     
+                var letrasMaiusculas = /[A-Z]/;
+                return letrasMaiusculas.test(senha)     
       }
 
     public hasPeloMenosUmaLetraMinuscula(senha: string): boolean {
@@ -93,8 +93,8 @@ export class ValidadorSenhasService {
                 1. Se a senha possuir pelo menos uma letra minúscula, deve retornar true;
                 2. Se a senha não possuir pelo menos uma letra minúscula, deve retornar false;
         */
-        var letrasMaiusculas = /[a-z]/;
-        return letrasMaiusculas.test(senha)
+        var letrasMinusculas = /[a-z]/;
+        return letrasMinusculas.test(senha)
     }
 
     public hasNumero(senha: string): boolean {
@@ -104,8 +104,8 @@ export class ValidadorSenhasService {
                 1. Se a senha possuir pelo menos um número, deve retornar true;
                 2. Se a senha não possuir pelo menos um número, deve retornar false;
         */
-        var temnumero = /[0-9]+/;
-        return temnumero.test(senha);
+        
+        return /\d/.test(senha);
     }
 
     public isPrimeiroCaractereNumero(senha: string): boolean {
