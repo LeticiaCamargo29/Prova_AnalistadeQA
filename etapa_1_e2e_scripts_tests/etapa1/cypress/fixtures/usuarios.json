@@ -1,0 +1,15 @@
+[
+    {
+        "email": "test@test.com",
+        "nome": "Fulana",
+        "senha": "123",
+        "confsenha": "123"
+    },
+    {
+        "email": "arroba@test.com",
+        "nome": "Siclana",
+        "senha": "123",
+        "confsenha": "123"
+    }
+
+]
