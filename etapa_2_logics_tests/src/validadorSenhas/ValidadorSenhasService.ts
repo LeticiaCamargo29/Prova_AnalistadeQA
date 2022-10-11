@@ -125,6 +125,11 @@ export class ValidadorSenhasService {
                 1. Se o último caractere da senha for uma letra, deve retornar true;
                 2. Se a último caractere da senha não for uma letra, deve retornar false;
         */
-            return (Number.isNaN(senha[senha.length-1]));
+        if ((senha.length) > 0){
+            return (Number.isNaN(senha[(senha.length)-1]))
+        }
+        else {
+            return (Number.isNaN(senha));
+        }
     }
 }

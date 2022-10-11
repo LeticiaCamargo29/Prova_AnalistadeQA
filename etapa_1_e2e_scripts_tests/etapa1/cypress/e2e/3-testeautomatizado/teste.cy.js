@@ -96,7 +96,7 @@ describe('Login e registro de usuários', () => {
         cy.contains('p','Conta inválida ou inexistente').should('be.visible');
     
     })
-    it.only('Caso de Teste 7 - Tranferência valor zerado', () => { 
+    it('Caso de Teste 7 - Tranferência valor zerado', () => { 
         cy.cadastrar('test@test.com','Fulana','123','123');
         cy.cadastrar('fulana@fulana.com','Siclana','123','123');
         cy.contains('a','Fechar').should('be.visible');
@@ -114,27 +114,16 @@ describe('Login e registro de usuários', () => {
         cy.contains('button','Transferir agora').click();
         cy.contains('p','Valor da transferência não pode ser 0 ou negativo').should('be.visible');
 
-        //Tranferencia válida
-        cy.get('#btn-TRANSFERÊNCIA').click();
-        const getUsu = localStorage.getItem('fulana@fulana.com');   
-        const usuObjt = JSON.parse(getUsu);
-        cy.get('input[placeholder = "Informe o número da conta"]').click().type(usuObjt.accountNumber);
-        cy.get('input[placeholder = "Informe o dígito da conta"]').click().type(1);
-        cy.get('input[placeholder = "Informe o valor da transferência"]').click().type(0);
-        cy.get('input[placeholder = "Informe uma descrição"]').click().type('Teste');
-        cy.contains('button','Transferir agora').click();
-        cy.contains('p','Valor da transferência não pode ser 0 ou negativo').should('be.visible');
+        
     })
 
     it('Caso de Teste 8 - Extrato', () => { 
-        
-        //entrando na conta
-
         cy.login('test@test.com','123').should(() => {
             cy.get('#btn-EXTRATO').click();
-            const getUsu = localStorage.getItem('test@test.com');   
+            const getUsu = localStorage.getItem('transaction:test@test.com');   
             const usuObjt = JSON.parse(getUsu);
-            cy.get('p').contains('R$ ' + usuObjt.balance + ',00').should('be.visible')
+            cy.contains('p',usuObjt.type).should('be.visible')
+            
         });
 
         

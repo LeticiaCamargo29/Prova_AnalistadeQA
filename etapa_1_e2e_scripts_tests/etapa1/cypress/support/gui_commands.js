@@ -8,13 +8,13 @@ Cypress.Commands.add('login',(nome,senha) => {
             url: 'https://bugbank.netlify.app/home'
         })
         .then((res) =>{
-            expect(res.status).to.be.equal(200)
-            expect(res.body).is.not.empty
+          expect(res.status).to.be.equal(200)
+           expect(res.body).is.not.empty
         })  
 })
 
 Cypress.Commands.add('cadastrar', (email,nome,senha,confsenha) => {
-    cy.contains('button', 'Registrar').click();
+    cy.contains('button', 'Registrar').click({force:true});
         cy.get(':nth-child(2) > .input__default').click({force: true}).type(email);
         cy.get('input[placeholder = "Informe seu Nome"]').click({force: true}).type(nome);
         cy.get(':nth-child(4) > .style__ContainerFieldInput-sc-s3e9ea-0 > .input__default').click({force: true}).type(senha);
